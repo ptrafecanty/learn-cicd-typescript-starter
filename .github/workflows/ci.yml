@@ -16,15 +16,16 @@ jobs:
       - name: Set up Node
         uses: actions/setup-node@v4
         with:
-          node-version: '20.6.0'
+          node-version: 18
 
       - name: Install dependencies
         run: npm ci
-      
-      - name: Run tests
+
+      - name: Run unit tests
         run: npm run test -- --coverage
+
   style:
-    name: Code Style
+    name: Style
     runs-on: ubuntu-latest
 
     steps:
@@ -34,10 +35,10 @@ jobs:
       - name: Set up Node
         uses: actions/setup-node@v4
         with:
-          node-version: '20.6.0'
+          node-version: 18
 
       - name: Install dependencies
         run: npm ci
 
-      - name: Check code style
+      - name: Check formatting
         run: npm run format:check
